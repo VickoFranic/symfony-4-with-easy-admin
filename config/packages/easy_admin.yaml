@@ -1,3 +1,28 @@
 easy_admin:
+
     entities:
-        - App\Entity\User
+        User:
+            class: App\Entity\User
+            controller: App\Controller\UserController
+
+            list:
+                fields:
+                    - email
+                    - firstName
+                    - lastName
+                    - active
+
+            edit:
+                fields:
+                    - email
+                    - firstName
+                    - lastName
+                    - active
+
+            new:
+                fields:
+                    - email
+                    - firstName
+                    - lastName
+                    - password
+                    - active
