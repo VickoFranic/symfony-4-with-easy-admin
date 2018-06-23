@@ -41,7 +41,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="array")
      */
-    private $roles;
+    private $roles = ['ROLE_USER'];
 
     /**
      * @ORM\Column(type="string", length=255, nullable=false)
@@ -129,7 +129,7 @@ class User implements UserInterface
      *
      * @return string The password
      */
-    public function getPassword(): string
+    public function getPassword()
     {
         return $this->password;
     }
