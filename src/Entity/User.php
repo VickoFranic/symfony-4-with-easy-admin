@@ -130,7 +130,7 @@ class User implements AdvancedUserInterface
      *
      * @return string The password
      */
-    public function getPassword()
+    public function getPassword(): string
     {
         return $this->password;
     }
@@ -163,9 +163,9 @@ class User implements AdvancedUserInterface
      * This is important if, at any given point, sensitive information like
      * the plain-text password is stored on this object.
      */
-    public function eraseCredentials()
+    public function eraseCredentials(): void
     {
-        // TODO: Implement eraseCredentials() method.
+
     }
 
     public function setRoles(array $roles): self
@@ -192,7 +192,7 @@ class User implements AdvancedUserInterface
      *
      * @see AccountExpiredException
      */
-    public function isAccountNonExpired()
+    public function isAccountNonExpired(): bool
     {
         return true;
     }
@@ -207,7 +207,7 @@ class User implements AdvancedUserInterface
      *
      * @see LockedException
      */
-    public function isAccountNonLocked()
+    public function isAccountNonLocked(): bool
     {
         return true;
     }
@@ -222,7 +222,7 @@ class User implements AdvancedUserInterface
      *
      * @see CredentialsExpiredException
      */
-    public function isCredentialsNonExpired()
+    public function isCredentialsNonExpired(): bool
     {
         return true;
     }
@@ -237,7 +237,7 @@ class User implements AdvancedUserInterface
      *
      * @see DisabledException
      */
-    public function isEnabled()
+    public function isEnabled(): bool
     {
         return $this->active;
     }
