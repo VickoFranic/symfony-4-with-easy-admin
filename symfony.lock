@@ -1,4 +1,7 @@
 {
+    "alterphp/easyadmin-extension-bundle": {
+        "version": "v1.2.5"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {

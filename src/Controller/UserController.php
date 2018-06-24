@@ -2,15 +2,15 @@
 
 namespace App\Controller;
 
+use AlterPHP\EasyAdminExtensionBundle\Controller\AdminController;
 use App\Entity\User;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController;
 
 class UserController extends AdminController
 {
     /**
      * @param User $entity
      */
-    protected function preUpdateEntity($entity): void
+    protected function prePersistEntity($entity)
     {
         $password = $this->get('security.password_encoder')->encodePassword($entity, $entity->getPassword());
         $entity->setPassword($password);

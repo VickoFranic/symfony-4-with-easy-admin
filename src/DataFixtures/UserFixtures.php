@@ -20,15 +20,28 @@ class UserFixtures extends Fixture
     {
         $encoder = $this->container->get('security.password_encoder');
 
-        $userAdmin = new User();
-        $userAdmin->setEmail('vfranic@gmail.com');
-        $userAdmin->setPassword($encoder->encodePassword($userAdmin, 'vicko'));
-        $userAdmin->setFirstName('Vicko');
-        $userAdmin->setLastName('Franic');
-        $userAdmin->setActive(true);
-        $userAdmin->setRoles(['ROLE_ADMIN']);
+        $userAdmin = (new User())
+            ->setEmail('admin@admin.dev')
+            ->setFirstName('User')
+            ->setLastName('Admin')
+            ->setActive(true)
+            ->setRoles(['ROLE_ADMIN']);
+
+        $userAdmin->setPassword($encoder->encodePassword($userAdmin, 'admin'));
 
         $manager->persist($userAdmin);
+
+        $userEditor = (new User())
+            ->setEmail('editor@admin.dev')
+            ->setFirstName('User')
+            ->setLastName('Editor')
+            ->setActive(true)
+            ->setRoles(['ROLE_EDITOR']);
+
+        $userEditor->setPassword($encoder->encodePassword($userAdmin, 'admin'));
+
+        $manager->persist($userEditor);
+
         $manager->flush();
     }
 }
