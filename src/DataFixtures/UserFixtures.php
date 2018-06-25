@@ -2,7 +2,8 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\User;
+use App\Entity\Admin;
+use App\Entity\Editor;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -20,7 +21,7 @@ class UserFixtures extends Fixture
     {
         $encoder = $this->container->get('security.password_encoder');
 
-        $userAdmin = (new User())
+        $userAdmin = (new Admin())
             ->setEmail('admin@admin.dev')
             ->setFirstName('User')
             ->setLastName('Admin')
@@ -31,7 +32,7 @@ class UserFixtures extends Fixture
 
         $manager->persist($userAdmin);
 
-        $userEditor = (new User())
+        $userEditor = (new Editor())
             ->setEmail('editor@admin.dev')
             ->setFirstName('User')
             ->setLastName('Editor')

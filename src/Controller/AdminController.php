@@ -2,13 +2,13 @@
 
 namespace App\Controller;
 
-use AlterPHP\EasyAdminExtensionBundle\Controller\AdminController;
-use App\Entity\User;
+use AlterPHP\EasyAdminExtensionBundle\Controller\AdminController as BaseAdminController;
+use App\Entity\Admin;
 
-class UserController extends AdminController
+class AdminController extends BaseAdminController
 {
     /**
-     * @param User $entity
+     * @param Admin $entity
      */
     protected function prePersistEntity($entity)
     {

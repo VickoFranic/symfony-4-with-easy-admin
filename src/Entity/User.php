@@ -7,8 +7,15 @@ use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
+ * @ORM\Entity()
  * @ORM\Table(name="users")
- * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\DiscriminatorColumn(name="user_type", type="string")
+ * @ORM\DiscriminatorMap({
+ *     "user" = "User",
+ *     "Admin"="Admin",
+ *     "editor"="Editor"
+ * })
  */
 class User implements AdvancedUserInterface
 {
@@ -130,7 +137,7 @@ class User implements AdvancedUserInterface
      *
      * @return string The password
      */
-    public function getPassword(): string
+    public function getPassword()
     {
         return $this->password;
     }

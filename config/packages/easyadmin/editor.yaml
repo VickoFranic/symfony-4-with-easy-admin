@@ -1,0 +1,19 @@
+easy_admin:
+    entities:
+        Editor:
+            class: App\Entity\Editor
+            controller: App\Controller\EditorController
+
+            list:
+                fields: ['email', 'firstName', 'lastName', 'active']
+
+            edit:
+                role: [ROLE_ADMIN, ROLE_EDITOR]
+                fields: ['email', 'firstName', 'lastName', 'active']
+
+            delete:
+                role: ROLE_ADMIN
+
+            new:
+                role: ROLE_ADMIN
+                fields: ['email', 'firstName', 'lastName', 'password', 'active']
