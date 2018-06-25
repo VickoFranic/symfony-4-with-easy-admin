@@ -1,4 +1,6 @@
 {
+    "name": "vicko-franic/symfony-4-with-easy-admin",
+    "description": "Basic Symfony 4 application with Easy Admin Bundle plugged in",
     "type": "project",
     "license": "proprietary",
     "require": {
