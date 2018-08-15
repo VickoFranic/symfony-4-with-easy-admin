@@ -1,0 +1,32 @@
+{% extends '@EasyAdmin/default/list.html.twig' %}
+
+{% block search_action %}
+    <div class="form-action {{ _action.css_class|default('') }}">
+        <form method="get" action="{{ path('easyadmin') }}">
+            {% block search_form %}
+                <input type="hidden" name="action" value="search">
+                <input type="hidden" name="entity" value="{{ _request_parameters.entity }}">
+                <input type="hidden" name="sortField" value="{{ _entity_config.search.sort.field|default(_request_parameters.sortField) }}">
+                <input type="hidden" name="sortDirection" value="{{ _entity_config.search.sort.direction|default(_request_parameters.sortDirection) }}">
+                <input type="hidden" name="menuIndex" value="{{ _request_parameters.menuIndex }}">
+                <input type="hidden" name="submenuIndex" value="{{ _request_parameters.submenuIndex }}">
+                <div class="input-group">
+                    <input style="height: 40px" class="form-control" type="search" name="query" value="{{ app.request.get('query')|default('') }}">
+                    <span class="input-group-btn">
+                        <button style="height: 40px; margin-top: 0px; margin-left: 20px;" class="btn btn-success" type="submit" formtarget="{{ _action.target }}">
+                            <i class="fa fa-lg fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            {% endblock %}
+        </form>
+    </div>
+{% endblock search_action %}
+
+{% block new_action %}
+    <div class="button-action">
+        <a style="height: 40px; margin-top: 0px;" class="btn btn-primary" href="{{ path('easyadmin', _request_parameters|merge({ action: _action.name })) }}" target="{{ _action.target }}">
+            <i class="fa fa-plus"></i>
+        </a>
+    </div>
+{% endblock new_action %}

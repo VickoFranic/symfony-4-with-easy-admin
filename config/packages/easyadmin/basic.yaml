@@ -1,3 +1,12 @@
 easy_admin:
 
     site_name: 'Easy Admin Test App'
+
+    design:
+        assets:
+            css:
+                - '//cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.9/css/mdb.min.css'
+                - '/assets/css/easy-admin.css'
+            js:
+                - '//cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js'
+                - '//cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.9/js/mdb.min.js'
