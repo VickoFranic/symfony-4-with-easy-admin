@@ -3,24 +3,39 @@
 
 {% block body %}
 
-    {% if error %}
-        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-xs-12 col-md-6 col-md-offset-6">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="{{ path('login') }}" method="post">
 
-    <form action="{{ path('login') }}" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}" />
+                            <p class="h4 text-center py-4">SIGN IN</p>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="_password" />
+                            <div class="md-form">
+                                <i class="fa fa-envelope prefix grey-text"></i>
+                                <input required id="username" name="_username" value="{{ last_username }}" type="email"
+                                       class="form-control mb-4">
+                                <label for="materialFormCardEmailEx" class="font-weight-light">Email</label>
+                            </div>
 
-        {#
-            If you want to control the URL the user
-            is redirected to on success (more details below)
-            <input type="hidden" name="_target_path" value="/account" />
-        #}
+                            <div class="md-form">
+                                <i class="fa fa-lock prefix grey-text"></i>
+                                <input required id="password" name="_password" type="password" class="form-control mb-4">
+                                <label for="materialFormCardPasswordEx" class="font-weight-light">Password</label>
+                            </div>
 
-        <button type="submit">login</button>
-    </form>
+                            <div class="text-center py-4 mt-3">
+                                <button class="btn btn-primary btn-block my-4 mb-4" type="submit">Sign in</button>
 
+                                {% if error %}
+                                    <small>{{ error.messageKey|trans(error.messageData, 'security') }}</small>
+                                {% endif %}
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
